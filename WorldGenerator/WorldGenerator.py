@@ -75,6 +75,9 @@ def createWorldFile(filename: "string", rowDimension: int, colDimension: int, nu
 
 	# Open file for writing
 	try:
+		# create directory if it doesn't exist
+		# if not os.path.exists(directory_name):
+		# 	os.makedirs(directory_name)
 		with open(file_path, 'w') as file:
 			# Write dimensions
 			file.write(str(nRows) + " " + str(nCols) + "\n")

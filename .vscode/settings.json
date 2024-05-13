@@ -1,3 +1,6 @@
 {
-    "cmake.sourceDirectory": "/home/rchipman/Minesweeper_Student/Minesweeper_Cpp"
+    "cmake.sourceDirectory": "/home/rchipman/Minesweeper_Student/Minesweeper_Cpp",
+    "files.associations": {
+        "iostream": "cpp"
+    }
 }
