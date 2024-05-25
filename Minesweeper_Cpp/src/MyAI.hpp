@@ -26,33 +26,21 @@
 #include <map>
 #include <set>
 #include <algorithm>
-#include <queue>
 
 using namespace std;
 
 class MyAI : public Agent
 {
 public:
-    struct Cell{
-        int x, y;
-        int num;
-        bool operator<(const Cell& other) const {
-            return num < other.num;
-        }
-    };
-
-    MyAI ( int _rowDimension, int _colDimension, int _totalMines, int _agentX, int _agentY );
+    MyAI ( int _rowDimension, int _colDimension, int _totalisMine, int _agentX, int _agentY );
     ~MyAI();
-
-    Action getAction ( int number ) override;
-
-    vector<vector<int>> board; // Stores the state of each cell on the board
-    bool flagOne = false;
-    int counter = 24;
     
-    vector<pair<int, int>> BombT;
-
-    priority_queue<Cell> proc;
+    Action getAction ( int number ) override;
+    uint32_t pIdx;
+    int8_t *neighboringMines, *unexploredNeighbors, *wasSafe;
+    uint32_t *safeQueue, safeQStartIdx, safeQEndIdx;
+    uint32_t *updateNMQueue, updateNMStartIdx, updateNMEndIdx;
+    uint32_t *updateUNQueue, updateUNStartIdx, updateUNEndIdx;
 };
 
 #endif //MINE_SWEEPER_CPP_SHELL_MYAI_HPP

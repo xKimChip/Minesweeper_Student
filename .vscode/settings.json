@@ -1,6 +1,14 @@
 {
     "cmake.sourceDirectory": "/home/rchipman/Minesweeper_Student/Minesweeper_Cpp",
     "files.associations": {
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "tuple": "cpp",
+        "new": "cpp",
+        "array": "cpp",
+        "any": "cpp",
+        "string_view": "cpp",
+        "deque": "cpp",
+        "list": "cpp",
+        "vector": "cpp"
     }
 }
