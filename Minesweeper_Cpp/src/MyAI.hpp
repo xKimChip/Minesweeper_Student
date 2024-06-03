@@ -1,31 +1,11 @@
-// ======================================================================
-// FILE:        MyAI.hpp
-//
-// AUTHOR:      Jian Li
-//
-// DESCRIPTION: This file contains your agent class, which you will
-//              implement. You are responsible for implementing the
-//              'getAction' function and any helper methods you feel you
-//              need.
-//
-// NOTES:       - If you are having trouble understanding how the shell
-//                works, look at the other parts of the code, as well as
-//                the documentation.
-//
-//              - You are only allowed to make changes to this portion of
-//                the code. Any changes to other portions of the code will
-//                be lost when the tournament runs your code.
-// ======================================================================
-
 #ifndef MINE_SWEEPER_CPP_SHELL_MYAI_HPP
 #define MINE_SWEEPER_CPP_SHELL_MYAI_HPP
 
 #include "Agent.hpp"
-#include <iostream> // temporary use
-#include <vector>
-#include <map>
-#include <set>
-#include <algorithm>
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
+#include <chrono>
 
 using namespace std;
 
@@ -36,11 +16,16 @@ public:
     ~MyAI();
     
     Action getAction ( int number ) override;
-    uint32_t pIdx;
-    int8_t *neighboringMines, *unexploredNeighbors, *wasSafe;
-    uint32_t *safeQueue, safeQStartIdx, safeQEndIdx;
-    uint32_t *updateNMQueue, updateNMStartIdx, updateNMEndIdx;
-    uint32_t *updateUNQueue, updateUNStartIdx, updateUNEndIdx;
+    uint16_t playerIdx;
+    int8_t *neighboringMines, *unexploredNeighbors, *isKnown, *potentialMines, *tilesInSet, *neighboringSets;
+    uint16_t *safeQueue, safeQStartIdx, safeQEndIdx;
+    uint16_t *updateQueue, updateQStartIdx, updateQEndIdx;
+    
+    float invCol;
+    int8_t dx, dy;
+    uint8_t x, y;
+    int8_t dxx, dyy;
+    uint16_t tempIdx, updateIdx, setA[8], setB[8], setBOnly[8], setAOnly[8], shared[8];
 };
 
 #endif //MINE_SWEEPER_CPP_SHELL_MYAI_HPP
